@@ -9,40 +9,50 @@
 <div class="container">
 
     <div class="jumbotron text-center">
-        <h1><i class="fa fa-beer"></i></span> What ya drinkin?<i class="fa fa-glass"></i></h1>
-
-        
-        
-        <!-- <p>Login or Register with:</p>
-
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-        <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
-        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a><br> -->
-
-        
-        
-        <h1><a href="/beers" class="btn btn-default"><span class="fa fa-beer"> Beers/Wines</span></a>
-        <a href="/cocktails" class="btn btn-default"><span class="fa fa-glass"> Cocktails</span></a></h1>
-
-        
-       
+        <h1><i class="fa fa-beer"></i></span> Beer & Wine! <i class="fa fa-beer"></i></h1>
 
     </div>
-<hr>
+    
+
 </div>
 
+<div>
+<hr>
+<div class="row">
+			 <div class="col-sm-4">
+                
+                <div class="well">
+                    <h3>Create New Beer/Wine</h3>
+                    <!-- New Beer form -->
+				    <form action="/beers" method="post">
+				    	<div class="form-group">
+				            <label>Name</label>
+				            <input type="text" class="form-control" name="name">
+				        </div>
+				        <div class="form-group">
+				            <label>Type</label>
+				            <input type="text" class="form-control" name="type">
+				        </div>
+				        <div class="form-group">
+				            <label>Alcohol by volume</label>
+				            <input type="float" class="form-control" name="abv">
+				        </div>
+				        <div class="form-group">
+				            <label>Brand</label>
+				            <input type="text" class="form-control" name="brand">
+				        </div>
 
-<div class="container">
-<div class="jumbotron">
-List All Drinks Here!
-<ul>
-   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
-   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
-   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
-   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
-</ul><ul>
+				        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+				    </form>
+                </div>
+
+            </div>
+            <div class="col-sm-8">
+            
+                <div class="well">
+                    <h1>Top Beers & Wines</h1>
+                    <p>List Beers Here</p>
+                    <ul>
    <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
    <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
    <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
@@ -63,8 +73,11 @@ List All Drinks Here!
    <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
    <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
 </ul>
-</div>
-
+                </div>
+                
+            </div>
+           
+        </div>
 </div>
     <footer>
         <% include /partials/footer %>

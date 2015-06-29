@@ -4,8 +4,39 @@ module.exports = function(app, passport) {
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('index.ejs'), {
+        }
     });
+
+    // show the about page
+    app.get('/about', function(req, res) {
+        res.render('about.ejs');
+    });
+    // show the beers page 
+    app.get('/beers', function(req, res) {
+        res.render('beers.ejs');
+    });
+
+    // post a new beer
+    app.post('/beers', function(req, res) {
+            res.send('beers.ejs');
+            res.redirect('/cocktails');
+        });
+    // show the cocktails page 
+    app.get('/cocktails', function(req, res) {
+        res.render('cocktails.ejs');
+    });
+    // post a new cocktail
+    app.post('/cocktails', function(req, res) {
+            res.send('cocktails.ejs');
+            res.redirect('/cocktails');
+        });
+
+    // show the search page
+    app.get('/search', function(req, res) {
+        res.render('search.ejs');
+    });
+
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
@@ -191,5 +222,5 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.redirect('/');
+    res.redirect('/login');
 }
