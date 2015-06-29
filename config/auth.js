@@ -12,10 +12,10 @@ module.exports = {
         'callbackURL'       : 'http://localhost:8080/auth/twitter/callback'
     },
 
-    // 'googleAuth' : {
-    //     'clientID'      : 'your-secret-clientID-here',
-    //     'clientSecret'  : 'your-client-secret-here',
-    //     'callbackURL'   : 'http://localhost:8080/auth/google/callback'
-    // }
+    'googleAuth' : {
+        'clientID'      : '817147731987-ecfh6gugvnoahigg3u2i9p09jtje26lq.apps.googleusercontent.com',
+        'clientSecret'  : 'PbRVzxyJdpe58ttw0PtrHlRR',
+        'callbackURL'   : 'http://localhost:8080/auth/google/callback'
+    }
 
 };
