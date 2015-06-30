@@ -1,6 +1,9 @@
 module.exports = function(app, passport) {
 
-// normal routes ===============================================================
+    var Beer = require('./models/beer.js');
+    var Cocktail = require('./models/cocktail.js');
+
+    // normal routes ===============================================================
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
@@ -19,18 +22,23 @@ module.exports = function(app, passport) {
 
     // post a new beer
     app.post('/beers', function(req, res) {
-            res.send('beers.ejs');
-            res.redirect('/cocktails');
-        });
+        
+        console.log(req.body);
+        var drink = new Beer(req.body);
+        console.log(drink);
+        drink.save;
+        res.redirect('/beers');
+    });
     // show the cocktails page 
     app.get('/cocktails', function(req, res) {
         res.render('cocktails.ejs');
     });
     // post a new cocktail
-    app.post('/cocktails', function(req, res) {
-            res.send('cocktails.ejs');
-            res.redirect('/cocktails');
-        });
+    app.post('/beers', function(req, res) {
+        var drink = new cocktail(req.body);
+        drink.save;
+        res.redirect('/cocktails');
+    });
 
     // show the search page
     app.get('/search', function(req, res) {
