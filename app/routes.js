@@ -17,27 +17,46 @@ module.exports = function(app, passport) {
     });
     // show the beers page 
     app.get('/beers', function(req, res) {
-        res.render('beers.ejs');
+        // res.render('beers.ejs');
+        var id = req.params.id;
+        Beer.findById(id, function(err, beer) {
+            res.render('beers.ejs', { beer: beer });
+        });
     });
 
     // post a new beer
     app.post('/beers', function(req, res) {
         
-        console.log(req.body);
+        // console.log(req.body);
+
         var drink = new Beer(req.body);
-        console.log(drink);
-        drink.save;
+        // console.log(drink);
+
+        drink.save(function(err) {
+            if (err) {
+                return res.send(err);
+            }
         res.redirect('/beers');
+        });
     });
+
     // show the cocktails page 
     app.get('/cocktails', function(req, res) {
-        res.render('cocktails.ejs');
+        res.render('cocktails.ejs')
     });
+
     // post a new cocktail
-    app.post('/beers', function(req, res) {
-        var drink = new cocktail(req.body);
-        drink.save;
+    app.post('/cocktails', function(req, res) {
+
+        var drink = new Cocktail(req.body);
+        // console.log(drink);
+        
+        drink.save(function(err) {
+            if (err) {
+                return res.send(err);
+            }
         res.redirect('/cocktails');
+        });
     });
 
     // show the search page

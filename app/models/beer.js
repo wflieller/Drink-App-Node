@@ -1,10 +1,8 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
+var mongoose = require('mongoose');
 
 // define the schema for our drink model
-var BeerSchema = new Schema({
-	beer: {
+var beerSchema = mongoose.Schema({
+
 	drinkName:  String,
 	drinkType:  String,
   	// user:  String,
@@ -16,7 +14,12 @@ var BeerSchema = new Schema({
 	    votes: Number, default: 0,
 	    favs:  Number, default: 0,
   	}
-  }
-},  { collection: 'beers' });
+});
+
+// Static method example
+beerSchema.statics.findById = function(id) {
+    return this.find({'id' : id });
+};
+
 // create the model for drinks and expose it to our app
-module.exports = { Beer: mongoose.model('Beer', BeerSchema) };
+module.exports = mongoose.model('Beer', beerSchema);
