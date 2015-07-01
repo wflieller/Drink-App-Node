@@ -1,7 +1,9 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
 
 // define the schema for our drink model
-var beerSchema = mongoose.Schema({
+var beerSchema = new Schema({
 
 	drinkName:  String,
 	drinkType:  String,
@@ -17,8 +19,14 @@ var beerSchema = mongoose.Schema({
 });
 
 // Static method example
-beerSchema.statics.findById = function(id) {
-    return this.find({'id' : id });
+beerSchema.statics.findById = function(id, cb) {
+    return this.findOne({'_id' : id })
+    .exec(cb);
+};
+
+beerSchema.statics.findAll = function(beers, cb) {
+    return this.findAll({'beers' : beers})
+    .exec(cb);
 };
 
 // create the model for drinks and expose it to our app

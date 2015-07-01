@@ -17,5 +17,11 @@ var cocktailSchema = mongoose.Schema({
   }
 
 });
+
+// Static method example
+cocktailSchema.statics.findById = function(id, cb) {
+    return this.findOne({'_id' : id })
+    .exec(cb);
+};
 // create the model for drinks and expose it to our app
 module.exports = mongoose.model('Cocktail', cocktailSchema);

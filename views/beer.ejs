@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include /partials/head %>
+    
+</head>
+<header><% include /partials/header %></header>
+<body>
+<div class="container">
+
+    <div class="jumbotron text-center">
+        <h1><i class="fa fa-beer"></i></span> Beer & Wine! <i class="fa fa-beer"></i></h1>
+        <a href="/beers" class="btn btn-default"><span class="fa fa-glass"> Beer & Wine </span></a></h1>
+
+    </div>
+	</div>
+
+	<p>
+    	<strong>id</strong>: <%= beer.id %><br>
+        <strong>Name</strong>: <%= beer.drinkName %><br>
+        <strong>Type</strong>: <%= beer.drinkType %><br>
+        <strong>ABV</strong>: <%= beer.abv %><br>
+        <strong>Brand</strong>: <%= beer.brand %><br>
+    </p>
+
+    <form action="/beers/:id" method="post">
+				    	<div class="form-group">
+				            <label>Comment</label>
+				            <input type="textarea" class="form-control" name="comment" placeholder="Add comment">
+				        </div>
+				        
+
+				        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+				    </form>

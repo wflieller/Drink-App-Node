@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Drinkz</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+    <% include /partials/head %>
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
     </style>
@@ -14,7 +14,8 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><i class="fa fa-beer"></i></span> <%= user.facebook.name %>'s  Profile Page<i class="fa fa-glass"></i></h1>
+    <h1><img src="http://i.imgur.com/vP4aOPj.png" class="drinkLogo"> <%= user.facebook.name %>'s  Profile Page <img src="http://i.imgur.com/4yG9Wea.png" class="drinkLogo"></h1>
+        
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
         <a href="/beers" class="btn btn-default"><span class="fa fa-beer"> Beers</span></a>
         <a href="/cocktails" class="btn btn-default"><span class="fa fa-glass"> Cocktails</span></a>

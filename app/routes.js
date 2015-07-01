@@ -17,21 +17,18 @@ module.exports = function(app, passport) {
     });
     // show the beers page 
     app.get('/beers', function(req, res) {
-        // res.render('beers.ejs');
-        var id = req.params.id;
-        Beer.findById(id, function(err, beer) {
-            res.render('beers.ejs', { beer: beer });
-        });
-    });
 
-    // post a new beer
+        Beer.find(function(err, beers) {
+            if (err) {
+                return res.send(err);
+            }
+     
+            res.render('beers.ejs', { beers: beers});
+            });
+    });
     app.post('/beers', function(req, res) {
-        
-        // console.log(req.body);
 
         var drink = new Beer(req.body);
-        // console.log(drink);
-
         drink.save(function(err) {
             if (err) {
                 return res.send(err);
@@ -40,22 +37,54 @@ module.exports = function(app, passport) {
         });
     });
 
-    // show the cocktails page 
-    app.get('/cocktails', function(req, res) {
-        res.render('cocktails.ejs')
+    // show a specific beer page 
+    app.get('/beers/:id', function(req, res) {
+
+        var id = req.params.id;
+        Beer.findById(id, function(err, beer) {
+            res.render('beer.ejs', { beer: beer });
+        });
     });
 
+    // show the cocktails page 
+    app.get('/cocktails', function(req, res) {
+        Cocktail.find(function(err, cocktails) {
+            if (err) {
+                return res.send(err);
+            }
+     
+            res.render('cocktails.ejs', { cocktails: cocktails});
+            });
+    });
     // post a new cocktail
     app.post('/cocktails', function(req, res) {
 
         var drink = new Cocktail(req.body);
-        // console.log(drink);
         
         drink.save(function(err) {
             if (err) {
                 return res.send(err);
             }
         res.redirect('/cocktails');
+        });
+    });
+
+    app.get('/cocktails/:id', function(req, res) {
+
+        var id = req.params.id;
+        Cocktail.findById(id, function(err, cocktail) {
+            res.render('cocktail.ejs', { cocktail: cocktail });
+        });
+    });
+    app.post('/cocktails/:id', function(req, res) {
+
+        var comment = new Cocktail.comment(req.body);
+        
+        comment.save(function(err) {
+            if (err) {
+                return res.send(err);
+            }
+        res.redirect('/cocktail/:id');
         });
     });
 
