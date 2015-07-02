@@ -9,21 +9,21 @@ module.exports = function(app, passport) {
     app.get('/', function(req, res) {
         res.render('index.ejs'), {
         }
-        Cocktail.find(function(err, cocktails) {
-            if (err) {
-                return res.send(err);
-            }
+        // Cocktail.find(function(err, cocktails) {
+        //     if (err) {
+        //         return res.send(err);
+        //     }
      
-            res.render('index.ejs', { cocktails: cocktails});
-            });
+        //     res.render('index.ejs', { cocktails: cocktails});
+        //     });
 
-        Beer.find(function(err, beers) {
-            if (err) {
-                return res.send(err);
-            }
+        // Beer.find(function(err, beers) {
+        //     if (err) {
+        //         return res.send(err);
+        //     }
      
-            res.render('index.ejs', { beers: beers});
-            });
+        //     res.render('index.ejs', { beers: beers});
+        //     });
 
     });
 
