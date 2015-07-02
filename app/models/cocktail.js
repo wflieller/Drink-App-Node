@@ -1,21 +1,21 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
+    
+var User = require('./user.js');
 
 
 // define the schema for our drink model
-var cocktailSchema = mongoose.Schema({
+var cocktailSchema = new Schema({
 
 	drinkName:  String,
 	alcType:  String,
-  	// user:  String,
+  	user: {type: ObjectId, ref: 'UserSchema'},
   	ingredients:   String,
   	alcLevel:  Number,
-  // 	comments: [{ body: String, date: Date }],
   	date: { type: Date, default: Date.now },
-  	meta: {
     votes: Number, default: 0,
     favs:  Number, default: 0,
-  }
-
 });
 
 // Static method example

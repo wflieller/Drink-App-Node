@@ -9,6 +9,22 @@ module.exports = function(app, passport) {
     app.get('/', function(req, res) {
         res.render('index.ejs'), {
         }
+        Cocktail.find(function(err, cocktails) {
+            if (err) {
+                return res.send(err);
+            }
+     
+            res.render('index.ejs', { cocktails: cocktails});
+            });
+
+        Beer.find(function(err, beers) {
+            if (err) {
+                return res.send(err);
+            }
+     
+            res.render('index.ejs', { beers: beers});
+            });
+
     });
 
     // show the about page
@@ -78,13 +94,13 @@ module.exports = function(app, passport) {
     });
     app.post('/cocktails/:id', function(req, res) {
 
-        var comment = new Cocktail.comment(req.body);
+        var comment = new comment(req);
         
         comment.save(function(err) {
             if (err) {
                 return res.send(err);
             }
-        res.redirect('/cocktail/:id');
+        res.redirect('/cocktail/coktail.id');
         });
     });
 
