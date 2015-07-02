@@ -9,11 +9,13 @@
 <div class="container">
 
     <div class="jumbotron text-center">
-        <h1><i class="fa fa-beer"></i></span> Beer & Wine! <i class="fa fa-beer"></i></h1>
+        <h1><img src="http://i.imgur.com/AIpeE2Q.png" class="drinkLogo"> <%= beer.drinkName %> <img src="http://i.imgur.com/AIpeE2Q.png" class="drinkLogo"></h1>
         <a href="/beers" class="btn btn-default"><span class="fa fa-glass"> Beer & Wine </span></a></h1>
 
     </div>
 	</div>
+	<div class="col-sm-8">
+            <div class="well">
 
 	<p>
     	<strong>id</strong>: <%= beer.id %><br>
@@ -23,12 +25,15 @@
         <strong>Brand</strong>: <%= beer.brand %><br>
     </p>
 
-    <form action="/beers/:id" method="post">
+    <form action="/beers/beer.id" method="post">
 				    	<div class="form-group">
-				            <label>Comment</label>
+				            <label>Comment:</label>
 				            <input type="textarea" class="form-control" name="comment" placeholder="Add comment">
 				        </div>
 				        
 
 				        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
 				    </form>
+
+				    </div>
+				    </div>
